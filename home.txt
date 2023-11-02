@@ -1,0 +1,20 @@
+1. Category.objects.filter(title__istartswith="m")
+
+2. Category.objects.filter(name__contains='avto')
+3. Category.objects.all()[4:10]
+4. Category.objects.filter(created_date__year=2023)
+5. Category.objects.order_by('-updated_at')
+6. Category.objects.get(product__name='matiz')
+7. Category.objects.filter(product__isnull=False)
+8. from django.db.models import Q
+   Category.objects.filter(Q(created_date__year=2022)|Q(name__startswith="S"))
+9. Category.objects.filter(pk=category_id).update(view_count=F('view_count')+1)
+10. for category in Category.objects.all():
+...     print(category.name)
+...     products = Product.objects.filter(category__name=category.name)
+...     for product in products:
+...             print(product.name)
+11. for product in Product.objects.all():
+...     print(product.view_count)
+12. from django.db.models import Max, Min
+... Product.objects.aggregate(Max("price"), Min("price"))
