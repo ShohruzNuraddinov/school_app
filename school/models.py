@@ -39,6 +39,7 @@ class Pupil(BaseModel):
 
 
 class ResultManager(models.Manager):
+    # 13.1
     def region_res(self):
         results = []
         for region in Region.objects.all():
@@ -57,6 +58,7 @@ class ResultManager(models.Manager):
         return results
 
     def region_district_res(self):
+        # 13.2
         results = []
         for district in District.objects.all():
             count = 0
@@ -76,6 +78,7 @@ class ResultManager(models.Manager):
         return results
 
     def district_school_res(self):
+        # 13.3
         results = []
         for school in School.objects.all():
             count = 0
@@ -94,6 +97,7 @@ class ResultManager(models.Manager):
         return results
 
     def region_year(self, region):
+        # 13.4
         results = []
         for month in range(1, 13):
             count = 0
@@ -114,6 +118,7 @@ class ResultManager(models.Manager):
         return results
 
     def district_res(self):
+        # 13.5
         results = []
         for dis in District.objects.all():
             calc = 0
